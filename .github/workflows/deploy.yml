@@ -15,9 +15,10 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Hugo
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
 
       - name: Build with Hugo
         run: hugo --minify --baseURL "https://${{ github.repository_owner }}.github.io/blog/"
